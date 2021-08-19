@@ -65,6 +65,17 @@
                         <goals>
                             <goal>copy-dependencies</goal>
                         </goals>
+                        <configuration>
+                            <outputDirectory>target/lib</outputDirectory>
+                            <stripVersion>true</stripVersion>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>tree</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>tree</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
