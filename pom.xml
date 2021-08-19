@@ -30,6 +30,9 @@
         <!-- Project dependencies -->
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <logback-classic.version>1.2.5</logback-classic.version>
+
+        <!-- Configuration -->
+        <maven-dependency-plugin.copy-dependencies.skip>false</maven-dependency-plugin.copy-dependencies.skip>
     </properties>
 
     <build>
@@ -89,6 +92,7 @@
                         <configuration>
                             <outputDirectory>${project.build.directory}/lib</outputDirectory>
                             <stripVersion>true</stripVersion>
+                            <skip>${maven-dependency-plugin.copy-dependencies.skip}</skip>
                         </configuration>
                     </execution>
                     <execution>
