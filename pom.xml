@@ -23,7 +23,8 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.12.0</version>
-            <scope>runtime</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/customer-computer/commons-lang3-3.12.0.jar</systemPath>
         </dependency>
 
         <dependency>
