@@ -14,8 +14,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -93,6 +93,27 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>test-java-program</id>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <phase>compile</phase>
+                        <configuration>
+                            <executable>java</executable>
+                            <arguments>
+                                <argument>${project.basedir}/src/tool/java/TestJava.java</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -112,15 +133,16 @@
                         <version>3.0.0</version>
                         <executions>
                             <execution>
+                                <id>test-windows-script</id>
                                 <goals>
                                     <goal>exec</goal>
                                 </goals>
                                 <phase>compile</phase>
+                                <configuration>
+                                    <executable>${project.basedir}/src/main/scripts/script.cmd</executable>
+                                </configuration>
                             </execution>
                         </executions>
-                        <configuration>
-                            <executable>${project.basedir}/src/main/scripts/script.cmd</executable>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>
@@ -141,18 +163,19 @@
                         <version>3.0.0</version>
                         <executions>
                             <execution>
+                                <id>test-unix-script</id>
                                 <goals>
                                     <goal>exec</goal>
                                 </goals>
                                 <phase>compile</phase>
+                                <configuration>
+                                    <executable>sh</executable>
+                                    <arguments>
+                                        <argument>${project.basedir}/src/main/scripts/script.sh</argument>
+                                    </arguments>
+                                </configuration>
                             </execution>
                         </executions>
-                        <configuration>
-                            <executable>sh</executable>
-                            <arguments>
-                                <argument>${project.basedir}/src/main/scripts/script.sh</argument>
-                            </arguments>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>
