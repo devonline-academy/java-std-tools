@@ -110,6 +110,9 @@
             <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>${maven-dependency-plugin.version}</version>
+                <configuration>
+                    <skip>${maven-dependency-plugin.copy-dependencies.skip}</skip>
+                </configuration>
                 <executions>
                     <execution>
                         <id>copy-dependencies</id>
@@ -120,7 +123,6 @@
                         <configuration>
                             <outputDirectory>${project.build.directory}/lib</outputDirectory>
                             <stripVersion>true</stripVersion>
-                            <skip>${maven-dependency-plugin.copy-dependencies.skip}</skip>
                         </configuration>
                     </execution>
                     <execution>
