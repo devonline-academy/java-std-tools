@@ -108,7 +108,7 @@
                     <execution>
                         <configuration>
                             <target>
-                                <echo file="target\test-antrun-plugin.txt" message="Hello world"/>
+                                <echo file="${project.build.directory}\test-antrun-plugin.txt" message="Hello world"/>
                             </target>
                         </configuration>
                         <goals>
